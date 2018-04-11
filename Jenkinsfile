@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Checkout') {
       steps {
-        dir(path: 'packages/package-b') {
+        dir(path: 'packages/package-a') {
           sh 'yarn build'
         }
 
