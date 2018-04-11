@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "echo \"hello world\""
+  },
   "dependencies": {
     "react": "^16.3.1"
   }
