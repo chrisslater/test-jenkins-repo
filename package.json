@@ -6,5 +6,8 @@
   "author": "Christopher Slater <chris@snapper.fish>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages"]
+  "workspaces": ["packages"],
+  "scripts": {
+    "build": "echo \"Eek\""
+  }
 }
