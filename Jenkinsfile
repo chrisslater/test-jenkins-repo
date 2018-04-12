@@ -11,6 +11,9 @@ pipeline {
       steps {
         sh 'yarn && yarn global add lerna'
         sh 'apk update && apk upgrade && apk add git'
+        sh '''git config user.email "chris@snapper.fish"
+git config user.name "Jenkins CI"
+'''
       }
     }
     stage('Test') {
