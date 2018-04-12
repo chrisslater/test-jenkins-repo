@@ -35,6 +35,7 @@ pipeline {
             sh 'lerna run test --scope=package-site-*'
           }
         }
+      }
     }
 
     stage('Checkout') {
