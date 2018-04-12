@@ -12,6 +12,7 @@ pipeline {
         sh 'yarn && yarn global add lerna'
       }
     }
+
     stage('Test') {
       parallel {
         stage('Libraries') {
@@ -31,6 +32,7 @@ lerna run test --scope=package-library-*;'''
     stage('Build libraries') {
       steps {
         sh 'lerna updated --scope=package-library-*'
+      }
     }
 
     // stage('Checkout') {
@@ -41,4 +43,5 @@ lerna run test --scope=package-library-*;'''
     //   }
     // }
   }
+
 }
