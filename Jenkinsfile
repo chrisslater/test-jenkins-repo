@@ -33,15 +33,15 @@ lerna run test --scope=package-library-*;'''
     }
     stage('Build libraries') {
       steps {
-        sh '''git status
+        sh '''git status;
 lerna updated --scope=package-library-*;
 lerna publish --conventional-commits --yes;'''
       }
     }
   }
   environment {
-    GIT_USERNAME= 'chrisslater'
-    GIT_USER_EMAIL='chris@snapper.fish'
+    GIT_USERNAME = 'chrisslater'
+    GIT_USER_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_USERNAME = 'snapperfish'
     NPM_TOKEN = credentials('npm-token')
