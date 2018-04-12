@@ -39,4 +39,9 @@ lerna publish --conventional-commits --yes;'''
       }
     }
   }
+  environment {
+    NPM_CONFIG_EMAIL = 'chris@snapper.fish'
+    NPM_CONFIG_USERNAME = 'snapperfish'
+    NPM_TOKEN = 'b45c44b4-d590-4b71-8a09-63ee3601e03d'
+  }
 }
