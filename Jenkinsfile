@@ -21,12 +21,12 @@ git config user.name "${GIT_USERNAME}"
         stage('Libraries') {
           steps {
             sh '''ls -la;
-lerna run test --scope=package-library-*;'''
+lerna run test --scope=@snapperfish/package-library-*;'''
           }
         }
         stage('Sites') {
           steps {
-            sh 'lerna run test --scope=package-site-*'
+            sh 'lerna run test --scope=@snapperfish/package-site-*'
           }
         }
       }
