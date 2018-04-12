@@ -1,12 +1,13 @@
 {
   "name": "package-a",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "echo \"hello world\""
+    "build": "echo \"hello package B\""
   },
   "dependencies": {
     "react": "^16.3.1"
-  }
+  },
+  "private": true
 }
