@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Setup') {
       parallel {
-        stage('Setup Environment') {
+        stage('Environment') {
           steps {
             sh '''yarn global add lerna;'''
           }
@@ -21,12 +21,27 @@ pipeline {
         }
       }
     }
+
+    stage('Test') {
+      parallel {
+        stage('Libraries') {
+          steps {
+            sh 'lerna run test --scope=package-library-*'
+          }
+        }
+
+        stage('Sites') {
+          steps {
+            sh 'lerna run test --scope=package-site-*'
+          }
+        }
+    }
+
     stage('Checkout') {
       steps {
         dir(path: 'packages/package-a') {
           sh 'yarn build'
         }
-
       }
     }
   }

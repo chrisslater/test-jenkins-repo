@@ -1,10 +1,11 @@
 {
-	"name": "package-b",
+	"name": "package-site-b",
 	"version": "1.0.1",
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "echo \"hello package B\""
+		"build": "echo \"hello package B\"",
+		"test": "echo \"Nothing to test in package B\""
 	},
 	"dependencies": {
 		"react": "^16.3.1"

@@ -1,10 +1,11 @@
 {
-  "name": "package-a",
+  "name": "package-library-a",
   "version": "1.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "echo \"hello package B\""
+    "build": "echo \"hello package A\"",
+    "test": "echo \"Nothing to test in package A\""
   },
   "dependencies": {
     "react": "^16.3.1"
