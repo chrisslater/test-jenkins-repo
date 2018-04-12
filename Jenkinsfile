@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Environment') {
           steps {
-            sh 'yarn global add lerna;'
+            sh '#yarn global add lerna;'
           }
         }
         stage('Install') {
