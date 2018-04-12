@@ -7,12 +7,11 @@ pipeline {
 
   }
   stages {
-    stage('Setup Environment') {
+    stage('Setup') {
       parallel {
         stage('Setup Environment') {
           steps {
-            sh '''yarn global add lerna;
-'''
+            sh '''yarn global add lerna;'''
           }
         }
         stage('Install') {
