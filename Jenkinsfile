@@ -38,12 +38,18 @@ pipeline {
       }
     }
 
-    stage('Checkout') {
+    stage('Build libraries') {
       steps {
-        dir(path: 'packages/package-a') {
-          sh 'yarn build'
-        }
+        sh 'lerna updated --scope=package-library-*'
       }
     }
+
+    // stage('Checkout') {
+    //   steps {
+    //     dir(path: 'packages/package-a') {
+    //       sh 'yarn build'
+    //     }
+    //   }
+    // }
   }
 }
