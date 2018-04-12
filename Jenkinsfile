@@ -9,7 +9,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'yarn'
+        sh '''yarn global add lerna;
+yarn;'''
       }
     }
     stage('Checkout') {
