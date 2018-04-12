@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Environment') {
           steps {
-            sh '''yarn global add lerna;'''
+            sh 'yarn global add lerna;'
           }
         }
         stage('Install') {
@@ -21,15 +21,14 @@ pipeline {
         }
       }
     }
-
     stage('Test') {
       parallel {
         stage('Libraries') {
           steps {
-            sh 'lerna run test --scope=package-library-*'
+            sh '''ls -la;
+lerna run test --scope=package-library-*;'''
           }
         }
-
         stage('Sites') {
           steps {
             sh 'lerna run test --scope=package-site-*'
@@ -37,12 +36,12 @@ pipeline {
         }
       }
     }
-
     stage('Checkout') {
       steps {
         dir(path: 'packages/package-a') {
           sh 'yarn build'
         }
+
       }
     }
   }
