@@ -30,7 +30,8 @@ lerna run test --scope=package-library-*;'''
     }
     stage('Build libraries') {
       steps {
-        sh 'lerna updated --scope=package-library-*'
+        sh '''lerna updated --scope=package-library-*;
+lerna publish --conventional-commits --yes;'''
       }
     }
   }
