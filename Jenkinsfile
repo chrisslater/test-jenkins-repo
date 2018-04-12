@@ -33,9 +33,7 @@ lerna run test --scope=package-library-*;'''
     }
     stage('Build libraries') {
       steps {
-        sh '''git status;
-lerna updated --scope=package-library-*;
-lerna publish --conventional-commits --yes;'''
+        sh 'lerna publish --conventional-commits --yes;'
       }
     }
   }
