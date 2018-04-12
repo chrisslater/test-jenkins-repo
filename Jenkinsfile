@@ -11,8 +11,8 @@ pipeline {
       steps {
         sh 'yarn && yarn global add lerna'
         sh 'apk update && apk upgrade && apk add git'
-        sh '''git config user.email "chris@snapper.fish"
-git config user.name "Jenkins CI"
+        sh '''git config user.email "${GIT_USER_EMAIL}"
+git config user.name "${GIT_USERNAME}"
 '''
       }
     }
@@ -40,8 +40,10 @@ lerna publish --conventional-commits --yes;'''
     }
   }
   environment {
+    GIT_USERNAME= 'chrisslater'
+    GIT_USER_EMAIL='chris@snapper.fish'
     NPM_CONFIG_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_USERNAME = 'snapperfish'
-    NPM_TOKEN = 'b45c44b4-d590-4b71-8a09-63ee3601e03d'
+    NPM_TOKEN = credentials('npm-token')
   }
 }

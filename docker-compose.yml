@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkinsci/blueocean
+    container_name: jenkins
+    ports:
+      - 8080:8080
+      - 5000:5000
+    volumes:
+      - /Users/chris/Sites/test-jenkins-repo/.jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+# volumes:
+#   jenkins-data:
