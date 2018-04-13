@@ -16,6 +16,18 @@ git config user.name "${GIT_USERNAME}"
 '''
       }
     }
+
+    // stage('Setup') {
+    //   steps {
+    //     sh 'yarn global add lerna'
+    //     sh 'apk add git'
+    //     sh  '''
+    //           git config user.email "${GIT_USER_EMAIL}";
+    //           git config user.name "${GIT_USERNAME}";
+    //         '''
+    //   }
+    // }
+
     stage('Test') {
       parallel {
         stage('Libraries') {
@@ -31,9 +43,12 @@ lerna run test --scope=@snapperfish/package-library-*;'''
         }
       }
     }
+
     stage('Build libraries') {
       steps {
-        sh 'lerna publish --conventional-commits --yes;'
+        sshagent(['ce0576ce-cff6-450c-998f-a195f91bc14a']) {
+          sh("lerna publish --conventional-commits --yes")
+        }
       }
     }
   }
