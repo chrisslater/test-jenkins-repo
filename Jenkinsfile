@@ -14,8 +14,8 @@ pipeline {
         sh 'mkdir ~/.ssh'
         sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
         sh  '''
-            git config user.email "${GIT_USER_EMAIL}"
-            git config user.name "${GIT_USERNAME}"
+            git config user.email "${GIT_USER_EMAIL}";
+            git config user.name "${GIT_USERNAME}";
             '''
       }
     }
@@ -47,7 +47,7 @@ lerna run test --scope=@snapperfish/package-library-*;'''
       }
     }
 
-    stage('Build libraries') {
+    stage('Publish libraries') {
       steps {
         sshagent(credentials: ['jenkins']) {
           sh 'lerna publish --conventional-commits --yes'
