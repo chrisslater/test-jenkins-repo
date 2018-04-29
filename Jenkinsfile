@@ -11,9 +11,11 @@ pipeline {
       steps {
         sh 'yarn && yarn global add lerna'
         sh 'apk update && apk upgrade && apk add git && apk add openssh-client'
-        sh '''git config user.email "${GIT_USER_EMAIL}"
-git config user.name "${GIT_USERNAME}"
-'''
+        sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
+        sh  '''
+            git config user.email "${GIT_USER_EMAIL}"
+            git config user.name "${GIT_USERNAME}"
+            '''
       }
     }
 
