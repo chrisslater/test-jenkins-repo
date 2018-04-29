@@ -52,9 +52,13 @@ lerna run test --scope=@snapperfish/package-library-*;'''
     stage('Publish libraries') {
       steps {
         sshagent(credentials: ['jenkins']) {
-          sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
-          sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
-          sh 'lerna publish --registry=https://registry.npmjs.org/ --conventional-commits --yes'
+          withNPM(npmrcConfig:'npmrc') {
+            echo "Performing npm build..."
+          //   sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
+          // sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
+            sh 'lerna publish --registry=https://registry.npmjs.org/ --conventional-commits --yes'
+          }
+
         }
       }
     }
@@ -64,6 +68,6 @@ lerna run test --scope=@snapperfish/package-library-*;'''
     GIT_USER_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_USERNAME = 'snapperfish'
-    NPM_TOKEN = credentials('npm-token')
+    // NPM_TOKEN = credentials('npm-token')
   }
 }
