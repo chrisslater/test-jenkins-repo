@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:6-alpine'
+      image 'chrisslater/base_ci_alpine'
       args '-p 3000:3000'
     }
 
@@ -9,11 +9,13 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'yarn && yarn global add lerna'
-        sh 'apk update && apk upgrade && apk add git && apk add openssh-client'
-        sh 'mkdir ~/.ssh'
+        // sh 'yarn && yarn global add lerna'
+        // sh 'apk update && apk upgrade && apk add git && apk add openssh-client'
+        // sh 'mkdir ~/.ssh'
 
-        sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
+        // sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
+
+        sh 'yarn'
 
         sh  '''
             git config user.email "${GIT_USER_EMAIL}"
