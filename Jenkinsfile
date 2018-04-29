@@ -49,9 +49,9 @@ lerna run test --scope=@snapperfish/package-library-*;'''
 
     stage('Build libraries') {
       steps {
-        // sshagent(credentials: ['jenkins']) {
+        sshagent(credentials: ['jenkins']) {
           sh 'lerna publish --conventional-commits --yes'
-        // }
+        }
       }
     }
   }
