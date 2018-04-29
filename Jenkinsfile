@@ -14,7 +14,6 @@ pipeline {
         sh 'mkdir ~/.ssh'
 
         sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
-        sh 'mkdir ~/.npmrc'
         sh  '''
               echo _auth = $NPM_TOKEN > ~/.npmrc
               echo email = $NPM_CONFIG_EMAIL >> ~/.npmrc
