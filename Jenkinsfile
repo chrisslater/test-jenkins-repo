@@ -14,8 +14,7 @@ pipeline {
         sh 'mkdir ~/.ssh'
 
         sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
-        sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
-        sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
+
         sh  '''
             git config user.email "${GIT_USER_EMAIL}"
             git config user.name "${GIT_USERNAME}"
@@ -53,6 +52,8 @@ lerna run test --scope=@snapperfish/package-library-*;'''
     stage('Publish libraries') {
       steps {
         sshagent(credentials: ['jenkins']) {
+          sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
+          sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
           sh 'lerna publish --registry=https://registry.npmjs.org/ --conventional-commits --yes'
         }
       }
