@@ -50,7 +50,7 @@ lerna run test --scope=@snapperfish/package-library-*;'''
     stage('Publish libraries') {
       steps {
         sshagent(credentials: ['jenkins']) {
-          sh 'lerna publish --conventional-commits --yes'
+          sh 'lerna publish --registry=https://registry.npmjs.org/ --conventional-commits --yes'
         }
       }
     }
