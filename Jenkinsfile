@@ -16,8 +16,8 @@ pipeline {
         sh 'ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts'
         sh 'mkdir ~/.npmrc'
         sh  '''
-              echo _auth = $NPM_TOKEN > ~/.npmrc;
-              echo email = $NPM_CONFIG_EMAIL >> ~/.npmrc;
+              echo _auth = $NPM_TOKEN > ~/.npmrc
+              echo email = $NPM_CONFIG_EMAIL >> ~/.npmrc
             '''
         sh  '''
             git config user.email "${GIT_USER_EMAIL}"
