@@ -6,7 +6,6 @@ pipeline {
       image 'chrisslater/base_ci_alpine'
       args '-p 3000:3000'
     }
-
   }
   stages {
 
@@ -67,10 +66,9 @@ lerna run test --scope=snapperfish-package-library-*;'''
     }
 
     stage('Create image') {
+      agent any
       steps {
-        docker.build('node:6-alpine').inside {
-          sh 'echo "Tests passed"'
-        }
+        sh 'docker build -t shanem/spring-petclinic:latest .'
       }
     }
   }
