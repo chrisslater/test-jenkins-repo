@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.9.1"></a>
+## [1.9.1](https://github.com/chrisslater/test-jenkins-repo/compare/snapperfish-package-library-a@1.9.0...snapperfish-package-library-a@1.9.1) (2018-04-30)
+
+
+### Bug Fixes
+
+* package a ([44019f1](https://github.com/chrisslater/test-jenkins-repo/commit/44019f1))
+
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/chrisslater/test-jenkins-repo/compare/snapperfish-package-library-a@1.8.0...snapperfish-package-library-a@1.9.0) (2018-04-30)
 
