@@ -55,7 +55,6 @@ lerna run test --scope=snapperfish-package-library-*;'''
       steps {
         sshagent(credentials: ['jenkins']) {
           withNPM(npmrcConfig:'npmrc') {
-            // sh "cp .npmrc ~/"
             sh 'lerna publish --conventional-commits --yes'
           }
 
