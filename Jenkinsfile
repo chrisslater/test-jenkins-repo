@@ -67,10 +67,12 @@ lerna run test --scope=snapperfish-package-library-*;'''
     }
 
     stage('Create image') {
-      def app = docker.build('node:6-alpine')
+      steps {
+        def app = docker.build('node:6-alpine')
 
-      app.inside {
-        sh 'echo "Tests passed"'
+        app.inside {
+          sh 'echo "Tests passed"'
+        }
       }
     }
   }
