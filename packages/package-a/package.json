@@ -1,5 +1,5 @@
 {
-  "name": "@snapperfish/package-library-a",
+  "name": "snapperfish-package-library-a",
   "version": "1.7.0",
   "main": "index.js",
   "license": "MIT",

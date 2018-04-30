@@ -59,9 +59,12 @@ lerna run test --scope=@snapperfish/package-library-*;'''
             sh "ls -la"
             sh "pwd"
 
+            sh "cp .npmrc ~/"
+
+
           //   sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
           // sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
-            sh 'lerna publish --registry=https://registry.npmjs.org/ --conventional-commits --yes'
+            sh 'lerna publish --conventional-commits --yes'
           }
 
         }
