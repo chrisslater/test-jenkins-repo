@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "echo \"hello package A\"",
-    "test": "echo \"Nothing to test in package A\"",
-    "fake": "add fake script"
+    "test": "echo \"Nothing to test in package A\""
   },
   "dependencies": {
     "react": "^16.3.1"
