@@ -55,6 +55,7 @@ lerna run test --scope=snapperfish-package-library-*;'''
       steps {
         sshagent(credentials: ['jenkins']) {
           withNPM(npmrcConfig:'npmrc') {
+            sh "cp .npmrc ~/"
             sh 'lerna publish --conventional-commits --yes'
           }
 
@@ -67,6 +68,6 @@ lerna run test --scope=snapperfish-package-library-*;'''
     GIT_USER_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_EMAIL = 'chris@snapper.fish'
     NPM_CONFIG_USERNAME = 'snapperfish'
-    // NPM_TOKEN = credentials('npm-token')
+    NPM_TOKEN = credentials('npm-token')
   }
 }
