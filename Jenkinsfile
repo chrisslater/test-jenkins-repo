@@ -40,12 +40,12 @@ pipeline {
         stage('Libraries') {
           steps {
             sh '''ls -la;
-lerna run test --scope=@snapperfish/package-library-*;'''
+lerna run test --scope=snapperfish-package-library-*;'''
           }
         }
         stage('Sites') {
           steps {
-            sh 'lerna run test --scope=@snapperfish/package-site-*'
+            sh 'lerna run test --scope=snapperfish-package-site-*'
           }
         }
       }
