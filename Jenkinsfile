@@ -55,15 +55,7 @@ lerna run test --scope=snapperfish-package-library-*;'''
       steps {
         sshagent(credentials: ['jenkins']) {
           withNPM(npmrcConfig:'npmrc') {
-            echo "Performing npm build..."
-            sh "ls -la"
-            sh "pwd"
-
-            sh "cp .npmrc ~/"
-
-
-          //   sh 'echo _auth = NPM_TOKEN >> ~/.npmrc'
-          // sh 'echo email = NPM_CONFIG_EMAIL >> ~/.npmrc'
+            // sh "cp .npmrc ~/"
             sh 'lerna publish --conventional-commits --yes'
           }
 
