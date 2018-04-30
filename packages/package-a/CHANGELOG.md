@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/chrisslater/test-jenkins-repo/compare/snapperfish-package-library-a@1.8.0...snapperfish-package-library-a@1.9.0) (2018-04-30)
+
+
+### Features
+
+* add fake script ([2a0cc89](https://github.com/chrisslater/test-jenkins-repo/commit/2a0cc89))
+
+
+
+
 <a name="1.8.0"></a>
 # 1.8.0 (2018-04-30)
 
