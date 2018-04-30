@@ -1,4 +1,6 @@
 pipeline {
+
+
   agent {
     docker {
       image 'chrisslater/base_ci_alpine'
@@ -7,6 +9,10 @@ pipeline {
 
   }
   stages {
+
+    def app
+
+
     stage('Install') {
       steps {
         // sh 'yarn && yarn global add lerna'
@@ -60,6 +66,14 @@ lerna run test --scope=snapperfish-package-library-*;'''
           }
 
         }
+      }
+    }
+
+    stage('Create image') {
+      app = docker.build('node:6-alpine')
+
+      app.inside {
+        sh 'echo "Tests passed"'
       }
     }
   }

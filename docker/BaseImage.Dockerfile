@@ -9,3 +9,6 @@ RUN apk update 					&&\
 
 RUN mkdir ~/.ssh &&\
 	ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
+
+COPY .npmrc /root/.npmrc
